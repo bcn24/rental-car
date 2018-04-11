@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 27, 2018 8:11:31 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="rental" name="Entities.Clientes" optimistic-lock="version" table="clientes">
+    <id name="idclientes" type="java.lang.Integer">
+      <column name="idclientes"/>
+      <generator class="identity"/>
+    </id>
+    <property name="name" type="string">
+      <column length="45" name="name" not-null="true"/>
+    </property>
+    <property name="surname" type="string">
+      <column length="45" name="surname" not-null="true"/>
+    </property>
+    <property name="email" type="string">
+      <column length="45" name="email" not-null="true"/>
+    </property>
+    <property name="password" type="string">
+      <column length="45" name="password" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="cars" table="car">
+      <key>
+        <column name="idclientes"/>
+      </key>
+      <one-to-many class="Entities.Car"/>
+    </set>
+  </class>
+</hibernate-mapping>

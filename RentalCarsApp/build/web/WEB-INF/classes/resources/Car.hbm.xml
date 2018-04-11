@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 27, 2018 8:11:31 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="rental" name="Entities.Car" optimistic-lock="version" table="car">
+    <id name="idcar" type="java.lang.Integer">
+      <column name="idcar"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="Entities.Clientes" fetch="select" name="clientes">
+      <column name="idclientes"/>
+    </many-to-one>
+    <property name="marca" type="string">
+      <column length="45" name="marca" not-null="true"/>
+    </property>
+    <property name="seria" type="string">
+      <column length="45" name="seria" not-null="true"/>
+    </property>
+    <property name="priceDay" type="int">
+      <column name="price_day" not-null="true"/>
+    </property>
+    <property name="maxPpl" type="int">
+      <column name="max_ppl" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>
